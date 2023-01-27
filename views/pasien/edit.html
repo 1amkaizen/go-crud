@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/bootstrap.css" />
+
+    <title>Golang CRUD</title>
+    <style>
+.container {
+max-width:550px;
+}
+</style>
+  </head>
+  <body>
+	  <div class="container mt-5">
+	<h1>Edit Data Pasien</h1>
+	<a class="btn btn-sm btn-primary" href="/pasien">Lihat Data</a>
+	<hr/>
+	<form action="/pasien/add" method="post">
+
+      {{ if .pesan }}
+      <div class="alert alert-success">
+          {{ .pesan }}
+          </div>
+      {{ end }}
+
+	<div class="form-group">
+	<label type="">Nama Lengkap</label>
+  <input type="text" name="nama_lengkap" value="{{ .pasien.NamaLengkap }}" class="form-control {{ if .validation.NamaLengkap }} is-invalid {{ end }}">
+  <div class="invalid-feedback">
+      {{ .validation.NamaLengkap  }}
+  </div>
+	<div>
+
+	<div class="form-group">
+	<label type="">NIK</label>
+	<input type="text" name="nik"  value="{{.pasien.NIK}}" class="form-control {{ if .validation.NIK }} is-invalid {{ end }}">
+<div class="invalid-feedback">
+      {{ .validation.NIK  }}
+  </div>
+
+	<div>
+
+	<div class="form-group">
+	<label type="">Jenis Kelamin</label>
+	<select type="text" name="jenis_kelamin"  value="{{.pasien.JenisKelamin}}" class="form-control {{ if .validation.JenisKelamin }} is-invalid {{ end }}">
+    <option value="">Pilih Jenis Kelamin</option>
+    <option  {{ if eq .pasien.JenisKelamin `1` }} selected {{end}} value="1">Laki-Laki</option>
+		<option  {{ if eq .pasien.JenisKelamin `2` }} selected {{end}} value="2">Perempuan</option>
+	</select>
+<div class="invalid-feedback">
+      {{ .validation.JenisKelamin  }}
+  </div>
+
+	<div>
+
+
+	<div class="form-group">
+	<label type="">Tempat Lahir</label>
+	<input type="text" name="tempat_lahir" value="{{.pasien.TempatLahir}}"  class="form-control {{ if .validation.TempatLahir }} is-invalid {{ end }}">
+<div class="invalid-feedback">
+      {{ .validation.TempatLahir  }}
+  </div>
+
+	<div>
+
+
+	<div class="form-group">
+	<label type="">Tanggal Lahir</label>
+	<input type="date" name="tanggal_lahir"  value="{{.pasien.TanggalLahir}}" class="form-control {{ if .validation.TanggalLahir }} is-invalid {{ end }}">
+<div class="invalid-feedback">
+      {{ .validation.TanggalLahir  }}
+  </div>
+
+	<div>
+
+
+	<div class="form-group">
+	<label type="">Alamat</label>
+  <textarea name="alamat" class="form-control {{ if .validation.Alamat }} is-invalid {{ end }}">{{.pasien.Alamat}}</textarea>
+<div class="invalid-feedback">
+      {{ .validation.Alamat  }}
+  </div>
+	<div>
+
+
+	<div class="form-group">
+	<label type="">NoHP</label>
+	<input type="text" name="nohp"  value="{{.pasien.NoHP}}" class="form-control {{ if .validation.NoHP }} is-invalid {{ end }}">
+<div class="invalid-feedback">
+      {{ .validation.NoHP  }}
+  </div>
+	<div>
+
+    <div class="form-group">
+        <input type="hidden" name="">
+    <button class="btn btn-primary btn-block" type="submit">Ubah Data</button>
+    <div>
+
+     </form>
+   </div>
+<script scr="/static/js/bootstrap.min.js"></script>
+<script scr="/static/js/bootstrap.js"></script>
+
+  </body>
+</html>

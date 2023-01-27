@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Golang CRUD</title>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/bootstrap.css" />
+  </head>
+  <body>
+	  <div class="container mt-5">
+	<h3>Data Pasien</h3>
+	<a class="btn btn-sm btn-primary" href="/pasien/add">Tambah Data</a>
+	<hr>
+	<table class="table table-striped table-hover">
+	<thead>
+	  <tr>
+	    <th>Nama Lengkap</th>
+	    <th>NIK</th>
+	    <th>Jenis Kelamin</th>
+	    <th>Tempat Lahir</th>
+	    <th>Tanggal Lahir</th>
+	    <th>Alamat</th>
+	    <th>NoHP</th>
+	    <th>Aksi</th>
+	   </tr>
+	  </thead>
+ <tbody>
+      {{ range .pasien }}
+     <tr>
+      <td>{{ .NamaLengkap }}</td>
+      <td>{{ .NIK }}</td>
+      <td>{{ .JenisKelamin }}</td>
+      <td>{{ .TempatLahir }}</td>
+      <td>{{ .TanggalLahir }}</td>
+      <td>{{ .Alamat }}</td>
+      <td>{{ .NoHP }}</td> 
+      <td>
+    <a href="/pasien/edit?id={{.Id}}" class="btn btn-warning btn-sm">Edit</a>
+    <a href="/pasien/delete?id={{.Id}}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+ </tr>
+
+      {{ end }}
+  </tbody>
+	</table>
+ 
+     </div>
+<script scr="/static/js/bootstrap.min.js"></script>
+<script scr="/static/js/bootstrap.js"></script>
+
+  </body>
+	</html>
